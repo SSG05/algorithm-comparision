@@ -22,14 +22,17 @@
 <th>Runtime (sec)</th>
 </tr>
 
-<tr><td>as20000102.txt</td><td>Exact</td><td>410</td><td>2.50</td><td>3.5</td></tr>
-<tr><td>as20000102.txt</td><td>CoreExact</td><td>400</td><td>2.45</td><td>2.0</td></tr>
+<tr><td>as20000102.txt</td><td>Exact</td><td>40</td><td>8.875</td><td>4.358</td></tr>
+<tr><td>as20000102.txt</td><td>CoreExact</td><td>410</td><td>2.45</td><td>2.0</td></tr>
 
-<tr><td>as-caida20071105.txt</td><td>Exact</td><td>1200</td><td>3.20</td><td>65</td></tr>
+<tr><td>as-caida20071105.txt</td><td>Exact</td><td>88</td><td>17.53</td><td>138.72</td></tr>
 <tr><td>as-caida20071105.txt</td><td>CoreExact</td><td>1150</td><td>3.05</td><td>35</td></tr>
 
-<tr><td>ca-HepTh.txt</td><td>Exact</td><td>680</td><td>3.70</td><td>18</td></tr>
+<tr><td>ca-HepTh.txt</td><td>Exact</td><td>32</td><td>15.5</td><td>12.792</td></tr>
 <tr><td>ca-HepTh.txt</td><td>CoreExact</td><td>640</td><td>3.55</td><td>9</td></tr>
+
+<tr><td>net-science.txt</td><td>Exact</td><td>20</td><td>9.5</td><td>0.286</td></tr>
+<tr><td>net-science.txt</td><td>CoreExact</td><td>290</td><td>2.65</td><td>3</td></tr>
 
 </table>
 
@@ -41,14 +44,14 @@
 <script>
 // Chart Data
 
-const labels = ['as20000102', 'as-caida20071105', 'ca-HepTh'];
+const labels = ['as20000102', 'as-caida20071105', 'ca-HepTh', 'net-science'];
 
 const densityData = {
     labels: labels,
     datasets: [
         {
             label: 'Exact',
-            data: [2.50, 3.20, 3.70],
+            data: [8.875, 17.53, 15.5, 9.5],
             backgroundColor: 'rgba(54, 162, 235, 0.7)'
         },
         {
@@ -64,7 +67,7 @@ const runtimeData = {
     datasets: [
         {
             label: 'Exact',
-            data: [3.5, 65, 18],
+            data: [4.358, 138.72, 12.792 , 0.286],
             backgroundColor: 'rgba(75, 192, 192, 0.7)'
         },
         {
