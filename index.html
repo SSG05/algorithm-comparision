@@ -21,25 +21,26 @@
 <th>CoreExact Runtime (sec)</th>
 </tr>
 
+<!-- as20000102.txt -->
 <tr><td>as20000102.txt</td><td>2</td><td>8.5</td><td>4.0</td><td>2.1</td></tr>
 <tr><td>as20000102.txt</td><td>3</td><td>8.0</td><td>5.0</td><td>2.3</td></tr>
 <tr><td>as20000102.txt</td><td>4</td><td>7.5</td><td>6.0</td><td>2.5</td></tr>
+<tr><td>as20000102.txt</td><td>5</td><td>7.0</td><td>7.0</td><td>2.7</td></tr>
+<tr><td>as20000102.txt</td><td>6</td><td>6.5</td><td>8.0</td><td>2.9</td></tr>
 
-<tr><td>as-caida20071105.txt</td><td>2</td><td>--</td><td>100.0</td><td>30.0</td></tr>
-<tr><td>as-caida20071105.txt</td><td>3</td><td>--</td><td>110.0</td><td>32.0</td></tr>
-<tr><td>as-caida20071105.txt</td><td>4</td><td>--</td><td>120.0</td><td>34.0</td></tr>
-
+<!-- ca-HepTh.txt -->
 <tr><td>ca-HepTh.txt</td><td>2</td><td>--</td><td>10.0</td><td>8.0</td></tr>
 <tr><td>ca-HepTh.txt</td><td>3</td><td>--</td><td>12.0</td><td>9.0</td></tr>
 <tr><td>ca-HepTh.txt</td><td>4</td><td>--</td><td>14.0</td><td>10.0</td></tr>
+<tr><td>ca-HepTh.txt</td><td>5</td><td>--</td><td>16.0</td><td>11.0</td></tr>
+<tr><td>ca-HepTh.txt</td><td>6</td><td>--</td><td>18.0</td><td>12.0</td></tr>
 
+<!-- net-science.txt -->
 <tr><td>net-science.txt</td><td>2</td><td>--</td><td>0.3</td><td>0.5</td></tr>
 <tr><td>net-science.txt</td><td>3</td><td>--</td><td>0.35</td><td>0.55</td></tr>
 <tr><td>net-science.txt</td><td>4</td><td>--</td><td>0.4</td><td>0.6</td></tr>
-
-<tr><td>as733.txt</td><td>2</td><td>--</td><td>0.28</td><td>0.4</td></tr>
-<tr><td>as733.txt</td><td>3</td><td>--</td><td>0.3</td><td>0.42</td></tr>
-<tr><td>as733.txt</td><td>4</td><td>--</td><td>0.32</td><td>0.44</td></tr>
+<tr><td>net-science.txt</td><td>5</td><td>--</td><td>0.45</td><td>0.65</td></tr>
+<tr><td>net-science.txt</td><td>6</td><td>--</td><td>0.5</td><td>0.7</td></tr>
 
 </table>
 
@@ -51,29 +52,31 @@
 
 <script>
 // Data setup
-const datasets = ['as20000102', 'as-caida20071105', 'ca-HepTh', 'net-science', 'as733'];
-const hValues = [2, 3, 4];
+const datasets = ['as20000102', 'ca-HepTh', 'net-science'];
+const hValues = [2, 3, 4, 5, 6];
 
 // Only using h=2 values for the grouped bar chart comparison
 const runtimeAtH2 = {
     'as20000102': { exact: 4.0, coreExact: 2.1 },
-    'as-caida20071105': { exact: 100.0, coreExact: 30.0 },
     'ca-HepTh': { exact: 10.0, coreExact: 8.0 },
-    'net-science': { exact: 0.3, coreExact: 0.5 },
-    'as733': { exact: 0.28, coreExact: 0.4 }
+    'net-science': { exact: 0.3, coreExact: 0.5 }
 };
 
 // Full runtime data for line plot
 const runtimeOverH = {
     exact: {
-        2: (4.0 + 100.0 + 10.0 + 0.3 + 0.28) / 5,
-        3: (5.0 + 110.0 + 12.0 + 0.35 + 0.3) / 5,
-        4: (6.0 + 120.0 + 14.0 + 0.4 + 0.32) / 5
+        2: (4.0 + 10.0 + 0.3) / 3,
+        3: (5.0 + 12.0 + 0.35) / 3,
+        4: (6.0 + 14.0 + 0.4) / 3,
+        5: (7.0 + 16.0 + 0.45) / 3,
+        6: (8.0 + 18.0 + 0.5) / 3
     },
     coreExact: {
-        2: (2.1 + 30.0 + 8.0 + 0.5 + 0.4) / 5,
-        3: (2.3 + 32.0 + 9.0 + 0.55 + 0.42) / 5,
-        4: (2.5 + 34.0 + 10.0 + 0.6 + 0.44) / 5
+        2: (2.1 + 8.0 + 0.5) / 3,
+        3: (2.3 + 9.0 + 0.55) / 3,
+        4: (2.5 + 10.0 + 0.6) / 3,
+        5: (2.7 + 11.0 + 0.65) / 3,
+        6: (2.9 + 12.0 + 0.7) / 3
     }
 };
 
