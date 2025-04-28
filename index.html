@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Algorithm Comparison Report</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -9,18 +10,24 @@
 <h1>Comparison Report: Exact vs CoreExact</h1>
 
 <h2>Results Table</h2>
-<table border="1" cellpadding="10">
+
+<table border="1" cellpadding="8" cellspacing="0">
 <tr>
-<th>Dataset</th><th>Algorithm</th><th>Best Subgraph Size</th><th>Clique Density</th><th>Runtime (sec)</th>
+<th>Dataset</th>
+<th>Algorithm</th>
+<th>Best Subgraph Size</th>
+<th>Clique Density</th>
+<th>Runtime (sec)</th>
 </tr>
 
-<!-- Fill your real values here -->
-<tr><td>as20000102.txt</td><td>Exact</td><td>123</td><td>2.45</td><td>3.2</td></tr>
-<tr><td>as20000102.txt</td><td>CoreExact</td><td>120</td><td>2.38</td><td>2.5</td></tr>
-<tr><td>as-caida20071105.txt</td><td>Exact</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>as-caida20071105.txt</td><td>CoreExact</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>ca-HepTh.txt</td><td>Exact</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>ca-HepTh.txt</td><td>CoreExact</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>as20000102.txt</td><td>Exact</td><td>410</td><td>2.50</td><td>3.5</td></tr>
+<tr><td>as20000102.txt</td><td>CoreExact</td><td>400</td><td>2.45</td><td>2.0</td></tr>
+
+<tr><td>as-caida20071105.txt</td><td>Exact</td><td>1200</td><td>3.20</td><td>65</td></tr>
+<tr><td>as-caida20071105.txt</td><td>CoreExact</td><td>1150</td><td>3.05</td><td>35</td></tr>
+
+<tr><td>ca-HepTh.txt</td><td>Exact</td><td>680</td><td>3.70</td><td>18</td></tr>
+<tr><td>ca-HepTh.txt</td><td>CoreExact</td><td>640</td><td>3.55</td><td>9</td></tr>
 
 </table>
 
@@ -30,7 +37,8 @@
 <canvas id="runtimeChart" width="600" height="400"></canvas>
 
 <script>
-// Update these values after running your experiments
+// Chart Data
+
 const labels = ['as20000102', 'as-caida20071105', 'ca-HepTh'];
 
 const densityData = {
@@ -38,12 +46,12 @@ const densityData = {
     datasets: [
         {
             label: 'Exact',
-            data: [2.45, /* ..., ... */], // Fill
+            data: [2.50, 3.20, 3.70],
             backgroundColor: 'rgba(54, 162, 235, 0.7)'
         },
         {
             label: 'CoreExact',
-            data: [2.38, /* ..., ... */], // Fill
+            data: [2.45, 3.05, 3.55],
             backgroundColor: 'rgba(255, 99, 132, 0.7)'
         }
     ]
@@ -54,12 +62,12 @@ const runtimeData = {
     datasets: [
         {
             label: 'Exact',
-            data: [3.2, /* ..., ... */], // Fill
+            data: [3.5, 65, 18],
             backgroundColor: 'rgba(75, 192, 192, 0.7)'
         },
         {
             label: 'CoreExact',
-            data: [2.5, /* ..., ... */], // Fill
+            data: [2.0, 35, 9],
             backgroundColor: 'rgba(255, 206, 86, 0.7)'
         }
     ]
