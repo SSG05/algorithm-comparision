@@ -22,31 +22,30 @@
 </tr>
 
 <!-- as20000102.txt -->
-<tr><td>as20000102.txt</td><td>2</td><td>8.5</td><td>4.0</td><td>2.1</td></tr>
-<tr><td>as20000102.txt</td><td>3</td><td>8.0</td><td>5.0</td><td>2.3</td></tr>
-<tr><td>as20000102.txt</td><td>4</td><td>7.5</td><td>6.0</td><td>2.5</td></tr>
-<tr><td>as20000102.txt</td><td>5</td><td>7.0</td><td>7.0</td><td>2.7</td></tr>
-<tr><td>as20000102.txt</td><td>6</td><td>6.5</td><td>8.0</td><td>2.9</td></tr>
+<tr><td>as20000102.txt</td><td>2</td><td>8.875</td><td>39.2876</td><td>19.79</td></tr>
+<tr><td>as20000102.txt</td><td>3</td><td>35.90</td><td>44.7296</td><td>8.573</td></tr>
+<tr><td>as20000102.txt</td><td>4</td><td>85.125</td><td>71.4874</td><td>8.076</td></tr>
+<tr><td>as20000102.txt</td><td>5</td><td>126.7</td><td>109.7243</td><td>7.843</td></tr>
+<tr><td>as20000102.txt</td><td>6</td><td>123.4</td><td>124.689</td><td>6.721</td></tr>
 
 <!-- ca-HepTh.txt -->
-<tr><td>ca-HepTh.txt</td><td>2</td><td>--</td><td>10.0</td><td>8.0</td></tr>
-<tr><td>ca-HepTh.txt</td><td>3</td><td>--</td><td>12.0</td><td>9.0</td></tr>
-<tr><td>ca-HepTh.txt</td><td>4</td><td>--</td><td>14.0</td><td>10.0</td></tr>
-<tr><td>ca-HepTh.txt</td><td>5</td><td>--</td><td>16.0</td><td>11.0</td></tr>
-<tr><td>ca-HepTh.txt</td><td>6</td><td>--</td><td>18.0</td><td>12.0</td></tr>
+<tr><td>ca-HepTh.txt</td><td>2</td><td>15.5</td><td>18.29</td><td>12.2714</td></tr>
+<tr><td>ca-HepTh.txt</td><td>3</td><td>121.714</td><td>31.6189</td><td>39.9981</td></tr>
+<tr><td>ca-HepTh.txt</td><td>4</td><td>587.99</td><td>79.97</td><td>134.667</td></tr>
+<tr><td>ca-HepTh.txt</td><td>5</td><td>2873.51</td><td>159.625</td><td>141.268</td></tr>
+<tr><td>ca-HepTh.txt</td><td>6</td><td>11689.4</td><td>364.8</td><td>397.468</td></tr>
 
 <!-- net-science.txt -->
-<tr><td>net-science.txt</td><td>2</td><td>--</td><td>0.3</td><td>0.5</td></tr>
-<tr><td>net-science.txt</td><td>3</td><td>--</td><td>0.35</td><td>0.55</td></tr>
-<tr><td>net-science.txt</td><td>4</td><td>--</td><td>0.4</td><td>0.6</td></tr>
-<tr><td>net-science.txt</td><td>5</td><td>--</td><td>0.45</td><td>0.65</td></tr>
-<tr><td>net-science.txt</td><td>6</td><td>--</td><td>0.5</td><td>0.7</td></tr>
+<tr><td>net-science.txt</td><td>2</td><td>9.5</td><td>0.5362</td><td>0.3994</td></tr>
+<tr><td>net-science.txt</td><td>3</td><td>56.6</td><td>0.6547</td><td>0.889</td></tr>
+<tr><td>net-science.txt</td><td>4</td><td>242.25</td><td>0.8796</td><td>4.371</td></tr>
+<tr><td>net-science.txt</td><td>5</td><td>775</td><td>3.4138</td><td>23.194</td></tr>
+<tr><td>net-science.txt</td><td>6</td><td>1938</td><td>6.2437</td><td>300.3942</td></tr>
 
 </table>
 
 <h2>Graphs</h2>
 
-<!-- NEW canvases -->
 <canvas id="groupedBarChart" width="800" height="400"></canvas>
 <canvas id="linePlotChart" width="800" height="400"></canvas>
 
@@ -55,28 +54,28 @@
 const datasets = ['as20000102', 'ca-HepTh', 'net-science'];
 const hValues = [2, 3, 4, 5, 6];
 
-// Only using h=2 values for the grouped bar chart comparison
+// Runtime at h=2 values for Grouped Bar Chart
 const runtimeAtH2 = {
-    'as20000102': { exact: 4.0, coreExact: 2.1 },
-    'ca-HepTh': { exact: 10.0, coreExact: 8.0 },
-    'net-science': { exact: 0.3, coreExact: 0.5 }
+    'as20000102': { exact: 39.2876, coreExact: 19.79 },
+    'ca-HepTh': { exact: 18.29, coreExact: 12.2714 },
+    'net-science': { exact: 0.5362, coreExact: 0.3994 }
 };
 
 // Full runtime data for line plot
 const runtimeOverH = {
     exact: {
-        2: (4.0 + 10.0 + 0.3) / 3,
-        3: (5.0 + 12.0 + 0.35) / 3,
-        4: (6.0 + 14.0 + 0.4) / 3,
-        5: (7.0 + 16.0 + 0.45) / 3,
-        6: (8.0 + 18.0 + 0.5) / 3
+        2: (39.2876 + 18.29 + 0.5362) / 3,
+        3: (44.7296 + 31.6189 + 0.6547) / 3,
+        4: (71.4874 + 79.97 + 0.8796) / 3,
+        5: (109.7243 + 159.625 + 3.4138) / 3,
+        6: (124.689 + 364.8 + 6.2437) / 3
     },
     coreExact: {
-        2: (2.1 + 8.0 + 0.5) / 3,
-        3: (2.3 + 9.0 + 0.55) / 3,
-        4: (2.5 + 10.0 + 0.6) / 3,
-        5: (2.7 + 11.0 + 0.65) / 3,
-        6: (2.9 + 12.0 + 0.7) / 3
+        2: (19.79 + 12.2714 + 0.3994) / 3,
+        3: (8.573 + 39.9981 + 0.889) / 3,
+        4: (8.076 + 134.667 + 4.371) / 3,
+        5: (7.843 + 141.268 + 23.194) / 3,
+        6: (6.721 + 397.468 + 300.3942) / 3
     }
 };
 
