@@ -16,96 +16,97 @@
 <table border="1" cellpadding="8" cellspacing="0">
 <tr>
 <th>Dataset</th>
-<th>Algorithm</th>
-<th>Best Subgraph Size</th>
+<th>H Value</th>
 <th>Clique Density</th>
-<th>Runtime (sec)</th>
+<th>Exact Runtime (sec)</th>
+<th>CoreExact Runtime (sec)</th>
 </tr>
 
-<tr><td>as20000102.txt</td><td>Exact</td><td>40</td><td>8.875</td><td>4.358</td></tr>
-<tr><td>as20000102.txt</td><td>CoreExact</td><td>410</td><td>2.45</td><td>2.0</td></tr>
-
-<tr><td>as-caida20071105.txt</td><td>Exact</td><td>88</td><td>17.53</td><td>138.72</td></tr>
-<tr><td>as-caida20071105.txt</td><td>CoreExact</td><td>1150</td><td>3.05</td><td>35</td></tr>
-
-<tr><td>ca-HepTh.txt</td><td>Exact</td><td>32</td><td>15.5</td><td>12.792</td></tr>
-<tr><td>ca-HepTh.txt</td><td>CoreExact</td><td>640</td><td>3.55</td><td>9</td></tr>
-
-<tr><td>net-science.txt</td><td>Exact</td><td>20</td><td>9.5</td><td>0.286</td></tr>
-<tr><td>net-science.txt</td><td>CoreExact</td><td>290</td><td>2.65</td><td>3</td></tr>
+<tr><td>as20000102</td><td>40</td><td>8.875</td><td>4.358</td><td>2.0</td></tr>
+<tr><td>as-caida20071105</td><td>88</td><td>17.53</td><td>138.72</td><td>35</td></tr>
+<tr><td>ca-HepTh</td><td>32</td><td>15.5</td><td>12.792</td><td>9</td></tr>
+<tr><td>net-science</td><td>20</td><td>9.5</td><td>0.286</td><td>3</td></tr>
+<tr><td>as733</td><td>20</td><td>9.5</td><td>0.286</td><td>3</td></tr>
 
 </table>
 
 <h2>Graphs</h2>
 
-<canvas id="densityChart" width="600" height="400"></canvas>
-<canvas id="runtimeChart" width="600" height="400"></canvas>
+<canvas id="runtimeDatasetChart" width="600" height="400"></canvas>
+<canvas id="runtimeHvalueChart" width="600" height="400"></canvas>
 
 <script>
-// Chart Data
+// Common Data
+const datasets = ['as20000102', 'as-caida20071105', 'ca-HepTh', 'net-science', 'as733'];
+const hValues = [40, 88, 32, 20, 20];
 
-const labels = ['as20000102', 'as-caida20071105', 'ca-HepTh', 'net-science'];
+const exactRuntimes = [4.358, 138.72, 12.792, 0.286, 0.286];
+const coreExactRuntimes = [2.0, 35, 9, 3, 3];
 
-const densityData = {
-    labels: labels,
+// Chart 1: Runtime vs Dataset
+const runtimeDatasetData = {
+    labels: datasets,
     datasets: [
         {
             label: 'Exact',
-            data: [8.875, 17.53, 15.5, 9.5],
+            data: exactRuntimes,
             backgroundColor: 'rgba(54, 162, 235, 0.7)'
         },
         {
             label: 'CoreExact',
-            data: [2.45, 3.05, 3.55],
+            data: coreExactRuntimes,
             backgroundColor: 'rgba(255, 99, 132, 0.7)'
         }
     ]
 };
 
-const runtimeData = {
-    labels: labels,
+// Chart 2: Runtime vs H Value
+const runtimeHvalueData = {
+    labels: hValues.map(String), // h-values as string for labeling
     datasets: [
         {
             label: 'Exact',
-            data: [4.358, 138.72, 12.792 , 0.286],
+            data: exactRuntimes,
             backgroundColor: 'rgba(75, 192, 192, 0.7)'
         },
         {
             label: 'CoreExact',
-            data: [2.0, 35, 9],
+            data: coreExactRuntimes,
             backgroundColor: 'rgba(255, 206, 86, 0.7)'
         }
     ]
 };
 
-new Chart(document.getElementById('densityChart'), {
+// Create Charts
+new Chart(document.getElementById('runtimeDatasetChart'), {
     type: 'bar',
-    data: densityData,
+    data: runtimeDatasetData,
     options: {
         responsive: true,
         plugins: {
             title: {
                 display: true,
-                text: 'Clique Density Comparison'
+                text: 'Runtime Comparison per Dataset'
             }
         }
     }
 });
 
-new Chart(document.getElementById('runtimeChart'), {
+new Chart(document.getElementById('runtimeHvalueChart'), {
     type: 'bar',
-    data: runtimeData,
+    data: runtimeHvalueData,
     options: {
         responsive: true,
         plugins: {
             title: {
                 display: true,
-                text: 'Runtime Comparison'
+                text: 'Runtime Comparison per H Value'
             }
         }
     }
 });
 </script>
+
 <footer>
     <p>Created by Soumith © 2025</p>
 </footer>
