@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algorithm Comparison Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Comparison Report: Exact vs CoreExact</h1>
+
+<h2>Results Table</h2>
+<table border="1" cellpadding="10">
+<tr>
+<th>Dataset</th><th>Algorithm</th><th>Best Subgraph Size</th><th>Clique Density</th><th>Runtime (sec)</th>
+</tr>
+
+<!-- Fill your real values here -->
+<tr><td>as20000102.txt</td><td>Exact</td><td>123</td><td>2.45</td><td>3.2</td></tr>
+<tr><td>as20000102.txt</td><td>CoreExact</td><td>120</td><td>2.38</td><td>2.5</td></tr>
+<tr><td>as-caida20071105.txt</td><td>Exact</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>as-caida20071105.txt</td><td>CoreExact</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>ca-HepTh.txt</td><td>Exact</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>ca-HepTh.txt</td><td>CoreExact</td><td>...</td><td>...</td><td>...</td></tr>
+
+</table>
+
+<h2>Graphs</h2>
+
+<canvas id="densityChart" width="600" height="400"></canvas>
+<canvas id="runtimeChart" width="600" height="400"></canvas>
+
+<script>
+// Update these values after running your experiments
+const labels = ['as20000102', 'as-caida20071105', 'ca-HepTh'];
+
+const densityData = {
+    labels: labels,
+    datasets: [
+        {
+            label: 'Exact',
+            data: [2.45, /* ..., ... */], // Fill
+            backgroundColor: 'rgba(54, 162, 235, 0.7)'
+        },
+        {
+            label: 'CoreExact',
+            data: [2.38, /* ..., ... */], // Fill
+            backgroundColor: 'rgba(255, 99, 132, 0.7)'
+        }
+    ]
+};
+
+const runtimeData = {
+    labels: labels,
+    datasets: [
+        {
+            label: 'Exact',
+            data: [3.2, /* ..., ... */], // Fill
+            backgroundColor: 'rgba(75, 192, 192, 0.7)'
+        },
+        {
+            label: 'CoreExact',
+            data: [2.5, /* ..., ... */], // Fill
+            backgroundColor: 'rgba(255, 206, 86, 0.7)'
+        }
+    ]
+};
+
+new Chart(document.getElementById('densityChart'), {
+    type: 'bar',
+    data: densityData,
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Clique Density Comparison'
+            }
+        }
+    }
+});
+
+new Chart(document.getElementById('runtimeChart'), {
+    type: 'bar',
+    data: runtimeData,
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Runtime Comparison'
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
